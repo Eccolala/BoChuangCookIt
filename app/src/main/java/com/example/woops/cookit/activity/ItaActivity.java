@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.woops.cookit.R;
+import com.example.woops.cookit.bean.Store;
+import com.example.woops.cookit.db.CookitDB;
+import com.example.woops.cookit.test.SpliteGenerate;
 import com.example.woops.cookit.util.JsonParser;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
@@ -45,6 +48,7 @@ public class ItaActivity extends AppCompatActivity {
     //播放进度
     private int mPercentForPlaying = 0;
     private String text;
+    private CookitDB mCookit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,8 @@ public class ItaActivity extends AppCompatActivity {
         //初始化UI
         initLayout();
 
+        //初始化数据库
+        mCookit = CookitDB.getInstance(this);
 
     }
 
@@ -91,6 +97,10 @@ public class ItaActivity extends AppCompatActivity {
         startActivity(new Intent(this, TtsActivity.class));
     }
 
+    //显示数据库
+    public void readDB(View view){
+        mCookit.loadDataBaseTest();
+    }
     //设置参数
     private void setParams() {
         // 清空参数
@@ -124,7 +134,6 @@ public class ItaActivity extends AppCompatActivity {
         // 注：AUDIO_FORMAT参数语记需要更新版本才能生效
         mIat.setParameter(SpeechConstant.AUDIO_FORMAT, "wav");
         mIat.setParameter(SpeechConstant.ASR_AUDIO_PATH, Environment.getExternalStorageDirectory() + "/msc/iat.wav");
-
 
 
         // 清空参数
@@ -272,7 +281,26 @@ public class ItaActivity extends AppCompatActivity {
             // 此回调表示：检测到了语音的尾端点，已经进入识别过程，不再接受语音输入
             showTip("结束说话");
             text = mResult.getText().toString();
+            int num = text.length();
+            if (num >= 6) {
+                //调用分割测试类显示结果
+                SpliteGenerate mSpliteGenerate = new SpliteGenerate(text);
+                //获取分类处理好的数据实体类
+                Store mStore = mSpliteGenerate.classification();
+
+                if (mStore.getOperate().equals("放入")){
+                    //将数据存入数据库中
+                    mCookit.savaStore(mStore);
+                }else if (mStore.getOperate().equals("拿走")){
+                    mCookit.deleteDataBaseTest();
+                }
+
+                //mSpliteGenerate.displayStore();
+            }
+
+            Log.d("MY", String.valueOf(num));
             mTts.startSpeaking(text, mTtsListener);
+
         }
 
         @Override

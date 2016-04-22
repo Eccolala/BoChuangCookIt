@@ -68,12 +68,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/iat_recognize_stream"
+        android:id="@+id/read_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="音频流识别"
-        android:textSize="20sp" />
+        android:text="读取数据库"
+        android:textSize="20sp"
+        android:onClick="readDB"/>
 
     <TextView
         android:layout_width="match_parent"
