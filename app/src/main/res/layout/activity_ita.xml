@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="上传联系人、词表，可以使云端识别联系人和词表更加准确，这里上传的内容对语义理解同样有效。"
-        android:textSize="@dimen/txt_size" />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
