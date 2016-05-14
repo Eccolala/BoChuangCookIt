@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
@@ -65,6 +66,10 @@ public class FirstActivity extends AppCompatActivity {
          */
         SuperToast.cancelAllSuperToasts();
 
+        //设置侧滑菜单监听器
+        setListener();
+
+
         //获取Context
         mContext = this;
         CoCoinUtil.init(mContext);
@@ -87,6 +92,16 @@ public class FirstActivity extends AppCompatActivity {
         boomMenuButton = (BoomMenuButton) findViewById(R.id.boom);
 
 
+    }
+
+    private void setListener() {
+        MaterialRippleLayout community = (MaterialRippleLayout) findViewById(R.id.comunity_layout);
+        community.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext,ComtyActivity.class));
+            }
+        });
     }
 
     private void setSlider() {
@@ -210,6 +225,7 @@ public class FirstActivity extends AppCompatActivity {
          */
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
+
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         /**

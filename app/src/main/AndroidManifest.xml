@@ -23,9 +23,7 @@
         <activity
             android:name=".activity.ItaActivity"
             android:label="@string/title_activity_ita"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.TtsActivity" />
         <activity android:name=".activity.FirstActivity">
             <intent-filter>
@@ -34,6 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.ComtyActivity" />
+        <activity android:name=".activity.VoiceActivity"></activity>
     </application>
 
 </manifest>

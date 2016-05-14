@@ -27,6 +27,9 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.SynthesizerListener;
 
+/**
+ * 语音转文字类，根据文字识别
+ */
 public class ItaActivity extends AppCompatActivity {
 
     //显示框

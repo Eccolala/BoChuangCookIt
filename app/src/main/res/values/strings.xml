@@ -24,7 +24,7 @@
     <string name="title_activity_main">MainActivity</string>
 
 
-    <string name="custom_view">Custom view</string>
+    <string name="custom_view">我的社区</string>
     <string name="tags_view">Tags view</string>
     <string name="months_view">Months view</string>
     <string name="list_view">List view</string>
