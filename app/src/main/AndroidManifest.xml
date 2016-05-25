@@ -33,7 +33,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ComtyActivity" />
-        <activity android:name=".activity.VoiceActivity"></activity>
+        <activity android:name=".activity.VoiceActivity" />
+        <activity android:name=".activity.EqupActivity" />
+        <activity android:name=".activity.EquDetailAty.FirstEquAty" />
+        <activity android:name=".activity.EquDetailAty.DispEquAty"></activity>
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@ import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.example.woops.cookit.R;
+import com.example.woops.cookit.activity.EquDetailAty.FirstEquAty;
 import com.example.woops.cookit.fragment.RecyclerViewFragment;
 import com.example.woops.cookit.util.CoCoinUtil;
 import com.example.woops.cookit.util.CustomSliderView;
@@ -99,7 +100,15 @@ public class FirstActivity extends AppCompatActivity {
         community.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mContext,ComtyActivity.class));
+                startActivity(new Intent(mContext, ComtyActivity.class));
+            }
+        });
+        //设备页面
+        MaterialRippleLayout eleEquipment = (MaterialRippleLayout) findViewById(R.id.ele_equ_layout);
+        eleEquipment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, FirstEquAty.class));
             }
         });
     }
@@ -198,20 +207,20 @@ public class FirstActivity extends AppCompatActivity {
                 switch (page) {
                     case 0:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.green,
-                                "https://fs01.androidpit.info/a/63/0e/android-l-wallpapers-630ea6-h900.jpg");
+                                R.color.red,
+                                "http://image.codes51.com/Article/image/20160417/20160417101809_0472.jpg");
                     case 1:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.blue,
-                                "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
+                                R.color.green,
+                                "http://i3.sinaimg.cn/lx/2012/1114/U6626P622DT20121114162756_1.jpg");
                     case 2:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.cyan,
-                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                                R.color.red,
+                                "http://image1.nphoto.net/news/image/201203/c8524a2fb7b2ba6f.jpg");
                     case 3:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.red,
-                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                                R.color.default_fill_color,
+                                "http://img4.imgtn.bdimg.com/it/u=1516802001,136721947&fm=21&gp=0.jpg");
                 }
 
                 //execute others actions if needed (ex : modify your header logo)

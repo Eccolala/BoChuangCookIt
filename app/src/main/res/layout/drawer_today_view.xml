@@ -155,7 +155,7 @@
             </com.balysv.materialripple.MaterialRippleLayout>
 
             <com.balysv.materialripple.MaterialRippleLayout
-                android:id="@+id/tag_layout"
+                android:id="@+id/ele_equ_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"

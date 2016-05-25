@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.woops.cookit.R;
+import com.example.woops.cookit.bean.FoodMsg;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
@@ -45,9 +46,12 @@ public class RecyclerViewFragment extends Fragment{
         mAdapter = new RecyclerViewMaterialAdapter(new RecyclerViewAdapter(mContentItems));
         mRecyclerView.setAdapter(mAdapter);
 
+//        FoodMsg food1 = new FoodMsg();
+//        food1.desc
 
         for (int i = 0; i < ITEM_COUNT; ++i)
             mContentItems.add(i);
+
         mAdapter.notifyDataSetChanged();
 
 
