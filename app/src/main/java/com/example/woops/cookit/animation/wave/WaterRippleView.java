@@ -24,7 +24,7 @@ public class WaterRippleView extends View {
     // 第二条水波移动速度
     private static final int TRANSLATE_X_SPEED_TWO = 4;
     //第三条水波移动速度
-    private static final int TRANSLATE_X_SPEED_THREE = 6;
+    private static final int TRANSLATE_X_SPEED_THREE = 8;
     private float mCycleFactorW;
 
     private int mTotalWidth, mTotalHeight;

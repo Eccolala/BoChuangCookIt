@@ -36,7 +36,13 @@
         <activity android:name=".activity.VoiceActivity" />
         <activity android:name=".activity.EqupActivity" />
         <activity android:name=".activity.EquDetailAty.FirstEquAty" />
-        <activity android:name=".activity.EquDetailAty.DispEquAty"></activity>
+        <activity android:name=".activity.EquDetailAty.DispEquAty" />
+        <activity android:name=".activity.NewsDetail1" />
+        <activity android:name=".activity.NewsDetail2" />
+        <activity android:name=".activity.OtherActivity" />
+        <activity android:name=".activity.VideoAty"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

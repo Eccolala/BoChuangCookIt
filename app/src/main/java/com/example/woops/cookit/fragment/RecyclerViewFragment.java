@@ -1,5 +1,6 @@
 package com.example.woops.cookit.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.woops.cookit.R;
-import com.example.woops.cookit.bean.FoodMsg;
+import com.example.woops.cookit.activity.NewsDetail1;
+import com.example.woops.cookit.activity.NewsDetail2;
+import com.example.woops.cookit.bean.NewsItem;
 import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
 import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
@@ -18,13 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerViewFragment extends Fragment{
+public class RecyclerViewFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
-    private static final int ITEM_COUNT = 100;
+    private static final int ITEM_COUNT = 10;
 
-    private List<Integer> mContentItems = new ArrayList<>();
+    private List<NewsItem> mList = new ArrayList<>();
 
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();
@@ -43,14 +47,44 @@ public class RecyclerViewFragment extends Fragment{
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        mAdapter = new RecyclerViewMaterialAdapter(new RecyclerViewAdapter(mContentItems));
+        for (int i = 0; i < ITEM_COUNT; i++) {
+            NewsItem item = new NewsItem();
+            item.setPic(R.mipmap.ic_launcher);
+            item.setDesc("锅包肉锅包肉锅包肉锅包肉");
+            mList.add(item);
+        }
+
+        RecyclerViewAdapter reAdapter = new RecyclerViewAdapter(getActivity(),mList );
+        reAdapter.setOnItemClickLitener(new RecyclerViewAdapter.OnItemClickLitener()
+        {
+
+            @Override
+            public void onItemClick(View view, int position)
+            {
+//                Toast.makeText(getActivity(), position + " click",
+//                        Toast.LENGTH_SHORT).show();
+
+                if (position == 1){
+                    startActivity(new Intent(getActivity(), NewsDetail1.class));
+                }else if (position == 2){
+                    startActivity(new Intent(getActivity(), NewsDetail2.class));
+
+                }else {
+                    Toast.makeText(getActivity(), "正在开发敬请期待......",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+
+        });
+        mAdapter = new RecyclerViewMaterialAdapter(reAdapter);
+
+
+
         mRecyclerView.setAdapter(mAdapter);
 
-//        FoodMsg food1 = new FoodMsg();
-//        food1.desc
 
-        for (int i = 0; i < ITEM_COUNT; ++i)
-            mContentItems.add(i);
+
 
         mAdapter.notifyDataSetChanged();
 

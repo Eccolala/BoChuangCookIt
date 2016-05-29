@@ -17,7 +17,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -355,7 +354,7 @@ public class FirstActivity extends AppCompatActivity {
                     @Override
                     public void onClick(int buttonIndex) {
                         if (buttonIndex == 0) {
-                            Toast.makeText(mContext, "Boom!", Toast.LENGTH_SHORT).show();
+                           startActivity(new Intent(mContext,ItaActivity.class));
                         } else if (buttonIndex == 1) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(
                                     "https://github.com/Nightonke/BoomMenu")));
